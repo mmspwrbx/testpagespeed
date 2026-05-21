@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+    background-color: #f9fafb;
+}
+
+.gallery-container {
+    width: 100%;
+    max-width: 100%; /* Убираем жесткое ограничение по ширине */
+    padding: 2rem 18rem 0; /* Оставляем аккуратные отступы по краям экрана */
+    box-sizing: border-box; /* Чтобы отступы не ломали ширину */
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #111827;
+}
+
+.image-grid {
+    display: grid;
+    /* Увеличили минимальную ширину колонки с 300px до 400px */
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 1.5rem;
+}
+
+.image-wrapper {
+    background-color: #e5e7eb; /* Серый фон, пока картинка грузится */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /* Фиксируем пропорции, чтобы страница не дергалась при появлении картинок */
+    aspect-ratio: 4 / 3;
+}
+
+.optimized-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Картинка заполняет блок без искажения пропорций */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.optimized-image:hover {
+    transform: scale(1.05); /* Легкий эффект при наведении для красоты */
+}
+
+/* --- Стили для плавающего виджета --- */
+.performance-widget {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px); /* Красивый эффект размытия фона под виджетом */
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    z-index: 100; /* Чтобы всегда был поверх картинок */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timer-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #374151;
+}
+
+.timer-text span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #111827;
+}
+
+.refresh-button {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.refresh-button:hover {
+    background-color: #1d4ed8;
+}
