@@ -92,3 +92,43 @@ body {
 .refresh-button:hover {
     background-color: #1d4ed8;
 }
+
+/* --- Адаптация под мобильные устройства --- */
+
+/* Для планшетов (экраны меньше 1024px) */
+@media (max-width: 1024px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Делаем 2 колонки вместо 3 */
+    }
+}
+
+/* Для телефонов (экраны меньше 768px) */
+@media (max-width: 768px) {
+    .gallery-container {
+        padding: 1rem; /* Уменьшаем пустые поля по краям экрана */
+    }
+
+    .image-grid {
+        grid-template-columns: 1fr; /* Картинки выстраиваются в 1 колонку друг под другом */
+    }
+
+    .performance-widget {
+        /* На телефоне открепляем виджет, чтобы он не перекрывал заголовок */
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 2rem;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center; /* Центрируем таймер и кнопку */
+    }
+
+    .gallery-header {
+        margin-bottom: 2rem;
+        padding-top: 0;
+    }
+
+    .gallery-header h1 {
+        font-size: 1.5rem; /* Немного уменьшаем размер шрифта заголовка */
+    }
+}
